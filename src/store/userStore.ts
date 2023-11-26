@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { makeLoggable } from "mobx-log";
 import { IPromiseBasedObservable, fromPromise } from "mobx-utils";
 import { getUsers } from "../api/getUsers";
 
@@ -46,6 +47,7 @@ class UserStore {
 
   constructor() {
     makeAutoObservable(this);
+    makeLoggable(this);
   }
 
   getUsersAction = () => {
